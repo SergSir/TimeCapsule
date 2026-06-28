@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>МГУПИ 90: капсула времени</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar" aria-label="Навигация проекта">
+        <a class="brand" href="#home" data-view-link="home" aria-label="На главный экран">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <path d="M12 18h24v17a6 6 0 0 1-6 6H18a6 6 0 0 1-6-6V18Z" />
+              <path d="M17 11h14v8H17z" />
+              <path d="M19 28h10" />
+              <path d="M24 23v10" />
+            </svg>
+          </span>
+          <span>
+            <strong>МГУПИ 90</strong>
+            <small>капсула времени</small>
+          </span>
+        </a>
+
+        <nav class="nav-tabs" aria-label="Разделы">
+          <button class="nav-tab is-active" type="button" data-view-link="home">
+            <span aria-hidden="true">⌂</span>
+            <span>Старт</span>
+          </button>
+          <button class="nav-tab" type="button" data-view-link="timeline">
+            <span aria-hidden="true">◌</span>
+            <span>Хроника</span>
+          </button>
+          <button class="nav-tab" type="button" data-view-link="message">
+            <span aria-hidden="true">✎</span>
+            <span>Капсула</span>
+          </button>
+          <button class="nav-tab" type="button" data-view-link="archive">
+            <span aria-hidden="true">▦</span>
+            <span>Архив</span>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="view view-home is-visible" id="home" data-view="home" aria-labelledby="home-title">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">1936 - 2026</p>
+              <h1 id="home-title">МГУПИ: 90 лет в будущем</h1>
+              <p class="lead">
+                Интерактивная веб-капсула времени: короткая хроника развития вуза, вопросы по ключевым событиям и архив посланий будущим студентам.
+              </p>
+              <div class="hero-actions" aria-label="Основные действия">
+                <button class="primary-action" type="button" data-view-link="timeline">
+                  <span aria-hidden="true">▶</span>
+                  <span>Начать маршрут</span>
+                </button>
+                <button class="secondary-action" type="button" data-view-link="archive">
+                  <span aria-hidden="true">▦</span>
+                  <span>Открыть архив</span>
+                </button>
+              </div>
+              <dl class="metrics" aria-label="Параметры проекта">
+                <div>
+                  <dt>8</dt>
+                  <dd>исторических точек</dd>
+                </div>
+                <div>
+                  <dt>4</dt>
+                  <dd>коротких вопроса</dd>
+                </div>
+                <div>
+                  <dt>2036</dt>
+                  <dd>адресат посланий</dd>
+                </div>
+              </dl>
+            </div>
+
+            <figure class="hero-media">
+              <img src="./assets/hero-capsule.png" alt="Стилизованная цифровая капсула времени с временной шкалой МГУПИ" />
+            </figure>
+          </div>
+        </section>
+
+        <section class="view view-timeline" id="timeline" data-view="timeline" aria-labelledby="timeline-title">
+          <div class="section-heading">
+            <p class="eyebrow">Хроника</p>
+            <h2 id="timeline-title">Путь от заочного института до цифрового наследия</h2>
+          </div>
+
+          <div class="timeline-layout">
+            <aside class="year-rail" aria-label="Годы хроники" id="yearRail"></aside>
+            <article class="history-panel" aria-live="polite">
+              <div class="history-kicker">
+                <span id="stepLabel">Точка 1 из 8</span>
+                <span id="scoreLabel">Верных ответов: 0</span>
+              </div>
+              <h3 id="eventYear">1936</h3>
+              <h4 id="eventTitle">Основание института</h4>
+              <p id="eventText"></p>
+              <div class="quiz-block" id="quizBlock">
+                <p class="quiz-question" id="quizQuestion"></p>
+                <div class="quiz-options" id="quizOptions"></div>
+                <p class="feedback" id="quizFeedback" aria-live="polite"></p>
+              </div>
+              <div class="timeline-controls">
+                <button class="secondary-action" type="button" id="prevEvent">
+                  <span aria-hidden="true">‹</span>
+                  <span>Назад</span>
+                </button>
+                <button class="primary-action" type="button" id="nextEvent">
+                  <span>Дальше</span>
+                  <span aria-hidden="true">›</span>
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view view-message" id="message" data-view="message" aria-labelledby="message-title">
+          <div class="section-heading">
+            <p class="eyebrow">Капсула</p>
+            <h2 id="message-title">Послание студентам 2036 года</h2>
+          </div>
+
+          <div class="capsule-layout">
+            <form class="message-form" id="messageForm">
+              <label class="field-label" for="messageName">Имя</label>
+              <input id="messageName" name="name" type="text" maxlength="32" placeholder="Например, Аня" autocomplete="name" />
+
+              <fieldset class="role-field">
+                <legend>Роль</legend>
+                <label><input type="radio" name="role" value="Студент" checked /> <span>Студент</span></label>
+                <label><input type="radio" name="role" value="Выпускник" /> <span>Выпускник</span></label>
+                <label><input type="radio" name="role" value="Преподаватель" /> <span>Преподаватель</span></label>
+              </fieldset>
+
+              <label class="field-label" for="messageText">Текст послания</label>
+              <textarea id="messageText" name="message" maxlength="180" placeholder="Что стоит сохранить и передать будущим студентам?"></textarea>
+              <div class="form-row">
+                <span class="counter" id="messageCounter">0 / 180</span>
+                <button class="primary-action" type="submit">
+                  <span aria-hidden="true">↥</span>
+                  <span>Сохранить</span>
+                </button>
+              </div>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </form>
+
+            <aside class="capsule-preview" aria-label="Превью капсулы">
+              <div class="capsule-object" aria-hidden="true">
+                <span>2036</span>
+              </div>
+              <p>Каждое сообщение попадает в общий архив и становится частью цифровой хроники юбилея.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view view-archive" id="archive" data-view="archive" aria-labelledby="archive-title">
+          <div class="section-heading archive-heading">
+            <div>
+              <p class="eyebrow">Архив</p>
+              <h2 id="archive-title">Послания в капсуле времени</h2>
+            </div>
+            <div class="archive-tools" aria-label="Фильтры архива">
+              <button class="filter-chip is-active" type="button" data-filter="Все">Все</button>
+              <button class="filter-chip" type="button" data-filter="Студент">Студенты</button>
+              <button class="filter-chip" type="button" data-filter="Выпускник">Выпускники</button>
+              <button class="filter-chip" type="button" data-filter="Преподаватель">Преподаватели</button>
+            </div>
+          </div>
+
+          <div class="archive-grid">
+            <div class="archive-list" id="archiveList" aria-live="polite"></div>
+            <aside class="archive-stats" aria-label="Статистика архива">
+              <div>
+                <strong id="totalMessages">0</strong>
+                <span>посланий</span>
+              </div>
+              <div>
+                <strong id="studentShare">0%</strong>
+                <span>от студентов</span>
+              </div>
+              <button class="secondary-action danger-action" type="button" id="resetArchive">
+                <span aria-hidden="true">×</span>
+                <span>Сбросить</span>
+              </button>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
